@@ -1,0 +1,21 @@
+{
+  "name": "neverfeartruth-raffle",
+  "version": "1.0.0",
+  "description": "Public auditable raffle script",
+  "main": "raffle.ts",
+  "scripts": {
+    "raffle": "ts-node raffle.ts",
+    "test": "npm test"
+  },
+  "author": "Armando Andini",
+  "license": "ISC",
+  "dependencies": {
+    "@types/lodash": "=4.14.177",
+    "@types/seedrandom": "=3.0.1",
+    "keccak256": "=1.0.3",
+    "lodash": "=4.17.21",
+    "merkletreejs": "=0.2.24",
+    "seedrandom": "=3.0.5",
+    "ts-node": "=10.4.0"
+  }
+}
