@@ -14,13 +14,14 @@ const main = (
   participants: Participants,
   seed: string,
   totalWinners: number
-) => {
+): string[] => {
   // Set the seed for Math.random
   seedrandom(seed, { global: true });
+  const participantsClone = _.cloneDeep(participants);
 
   // whitelistedAddresses: Addresses that have the right to mint without winning the raffle
   // raffleAddresses: Addresses that will participate in the raffle for the right to mint
-  const { raffleAddresses, whitelistedAddresses } = participants;
+  const { raffleAddresses, whitelistedAddresses } = participantsClone;
 
   // How many minting rights are being raffled
   const totalWhitelisted = whitelistedAddresses.length;
@@ -42,9 +43,29 @@ const main = (
     _.remove(raffleAddresses, (a) => a.address === raffleWinnerAddress);
   }
 
-  const winnerAddresses = whitelistedAddresses
+  return whitelistedAddresses
     .map((a) => a.address)
     .concat(raffleWinnerAddresses);
+};
+
+// Execute script only when called via CLI
+if (require.main === module) {
+  const seed = process.argv[2];
+  const winnerCount = parseInt(process.argv[3]);
+
+  if (!seed || !winnerCount) {
+    console.log(
+      "Please pass the seed string and number of winners as command line arguments"
+    );
+    console.log("i.e. npm run raffle mySeed 5");
+    process.exit(1);
+  }
+
+  const participants = JSON.parse(
+    fs.readFileSync("./participants.json").toString()
+  );
+
+  const winnerAddresses = main(participants, seed, winnerCount);
 
   // Build the merkle tree
   const winnerHashes = winnerAddresses.map(keccak256);
@@ -56,22 +77,6 @@ const main = (
     winners: winnerAddresses,
     merkleRoot: merkleTree.getHexRoot(),
   });
-};
-
-// Execute script only when called via CLI
-if (require.main === module) {
-  const seed = process.argv[2];
-
-  if (!seed) {
-    console.log("Please pass the seed string as command line argument");
-    process.exit(1);
-  }
-
-  const participants = JSON.parse(
-    fs.readFileSync("./participants.json").toString()
-  );
-
-  main(participants, seed, 5);
 }
 
 export default main;

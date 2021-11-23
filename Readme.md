@@ -8,4 +8,4 @@
 
 #### Run script
 
-`npm run raffle MY_SEED`
+`npm run raffle MY_SEED NUMBER_OF_WINNERS`
