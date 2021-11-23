@@ -79,6 +79,12 @@ if (require.main === module) {
   });
 
   fs.writeFileSync("winners.json", JSON.stringify(winnerAddresses));
+  console.log("wrote winners.json");
+  fs.writeFileSync(
+    "merkle_root.json",
+    JSON.stringify({ merkleRoot: merkleTree.getHexRoot() })
+  );
+  console.log("wrote merkle_root.json");
 }
 
 export default main;
