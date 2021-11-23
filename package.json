@@ -4,7 +4,7 @@
   "description": "Public auditable raffle script",
   "main": "raffle.ts",
   "scripts": {
-    "raffle": "ts-node raffle.ts",
+    "raffle": "ts-node src/raffle.ts",
     "test": "npm test"
   },
   "author": "Armando Andini",
@@ -16,6 +16,7 @@
     "lodash": "=4.17.21",
     "merkletreejs": "=0.2.24",
     "seedrandom": "=3.0.5",
-    "ts-node": "=10.4.0"
+    "ts-node": "=10.4.0",
+    "weighted": "^1.0.0"
   }
 }

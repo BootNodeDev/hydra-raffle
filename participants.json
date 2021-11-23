@@ -1,0 +1,36 @@
+{
+  "whitelistedAddresses": [
+    {
+      "address": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+    },
+    {
+      "address": "0x7dcf217ff94f3b0b28c7310246dd8cd457af1ecc"
+    }
+  ],
+  "raffleAddresses": [
+    {
+      "address": "0x9cf2288d8FA37051970AeBa88E8b4Fb5960c2385",
+      "raffle_weight": 1
+    },
+    {
+      "address": "0xDe75665F3BE46D696e5579628fA17b662e6fC04e",
+      "raffle_weight": 1
+    },
+    {
+      "address": "0x76d88fb4fcb39B4b895Bfc4df0dCa252b9C7DC6B",
+      "raffle_weight": 1
+    },
+    {
+      "address": "0x32dea44d5C243990B0133f5D103C2A784aA6a29F",
+      "raffle_weight": 1
+    },
+    {
+      "address": "0x3261A5c0757632C06218Cf3AA8265f7CDbB94016",
+      "raffle_weight": 1
+    },
+    {
+      "address": "0x03D3CcF782202753316949426Ce0cc43EeBa9440",
+      "raffle_weight": 1
+    }
+  ]
+}
