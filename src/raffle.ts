@@ -77,6 +77,8 @@ if (require.main === module) {
     winners: winnerAddresses,
     merkleRoot: merkleTree.getHexRoot(),
   });
+
+  fs.writeFileSync("winners.json", JSON.stringify(winnerAddresses));
 }
 
 export default main;
