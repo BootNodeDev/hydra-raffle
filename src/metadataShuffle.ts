@@ -27,16 +27,17 @@ export default metadataShuffle;
 // Execute script only when called via CLI
 if (require.main === module) {
   const seed = process.argv[2];
+  const fileName = process.argv[3];
 
-  if (!seed) {
-    console.log("Please pass the seed string as command line argument");
-    console.log("i.e. npm run metadata-shuffle 0x1234");
+  if (!seed || !fileName) {
+    console.log(
+      "Please pass the seed string and filename as command line arguments"
+    );
+    console.log("i.e. npm run metadata-shuffle 0x1234 metadataHashes.json");
     process.exit(1);
   }
 
-  const hashes = JSON.parse(
-    fs.readFileSync("./metadataHashes.json").toString()
-  );
+  const hashes = JSON.parse(fs.readFileSync(fileName).toString());
 
   const mapping = metadataShuffle(hashes, seed);
   const mappingJson = JSON.stringify(mapping, null, 2);

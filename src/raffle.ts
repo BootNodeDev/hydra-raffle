@@ -52,18 +52,17 @@ const main = (
 if (require.main === module) {
   const seed = process.argv[2];
   const winnerCount = parseInt(process.argv[3]);
+  const inputFileName = process.argv[4];
 
-  if (!seed || !winnerCount) {
+  if (!seed || !winnerCount || !inputFileName) {
     console.log(
-      "Please pass the seed string and number of winners as command line arguments"
+      "Please pass parameters: seed string, number of winners and input file"
     );
-    console.log("i.e. npm run raffle mySeed 5");
+    console.log("i.e. npm run raffle mySeed 5 participants.json");
     process.exit(1);
   }
 
-  const participants = JSON.parse(
-    fs.readFileSync("./participants.json").toString()
-  );
+  const participants = JSON.parse(fs.readFileSync(inputFileName).toString());
 
   const winnerAddresses = main(participants, seed, winnerCount);
 
