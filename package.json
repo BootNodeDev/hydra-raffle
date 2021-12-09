@@ -5,6 +5,7 @@
   "main": "raffle.ts",
   "scripts": {
     "raffle": "ts-node src/raffle.ts",
+    "metadata-shuffle": "ts-node src/metadataShuffle.ts",
     "test": "jest"
   },
   "author": "Armando Andini",
