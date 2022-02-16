@@ -1,4 +1,4 @@
-## NeverFearTruth raffle and metadata shuffle scripts
+## NeverFearTruth random allocation and metadata shuffle scripts
 
 ### Usage
 
@@ -12,7 +12,7 @@
 
 Example
 
-`npm run raffle 0x38947 5 participants.json`
+`npm run raffle 0x38947 10000 participants.json`
 
 Winner addresses are written to winners.json file
 
